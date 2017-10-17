@@ -87,4 +87,40 @@ switch (a10) {
 }
 //output:a10 = 1
 
+/**
+ * ternary operator
+ * (condition) ? expr1 : expr2
+ *
+ */
+var a11 = 2;
+var even1 = (a11 % 2 === 0) ? true : false;
+//  can be simplified to this :
+var even2 = (a11 % 2 === 0) ;
+console.log('a11 = ' + a11 + '. If a11 is even ? The answer is ' + even1 + '.');
+console.log('a11 = ' + a11 + '. If a11 is even ? The answer is ' + even2 + '.');
 
+/**
+ * loop
+ * For each element of this array plus one
+ *
+ */
+
+//positive sequence traverse
+var array = [1,2,3];
+for (var i = 0; i < array.length; i++){
+    array[i]++;
+    console.log('Array No.' + i + ' = ' + array[i]);
+}
+
+//Reverse traversal
+var array = [1,2,3];
+for (var i = array.length-1; i >= 0; i--){
+    array[i]++;
+    console.log('Array No.' + i + ' = ' + array[i]);
+}
+
+var array = [1,2,3];
+for (var i = array.length-1; i >= 0; i--){
+    array[i]++;
+    console.log('Array No.' + i + ' = ' + array[i]);
+}
