@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Queue</title>
+	<script type="text/javascript">
+		function Queue(){
+			this.dataStore = [];
+			this.enqueue = enqueue;
+			this.dequeue = dequeue;
+			this.front = front;
+			this.back = back;
+			this.toString = toString;
+			this.empty = empty;
+		};
+
+		function enqueue(element){
+			this.dataStore.push(element);
+		};
+
+		function dequeue(){
+			this.dataStore.shift();
+		};
+
+		function front(){
+			return this.dataStore[0];
+		};
+
+		function back(){
+			return this.dataStore[this.dataStore.length-1];
+		};
+
+		function toString(){
+			var retStr = "";
+			for(var i = 0;i < this.dataStore.length; ++i){
+				retStr += this.dataStore[i]+"\n";
+			}
+			return retStr;
+		};
+
+		function empty() {
+			if (this.dataStore.length == 0) {
+				return true;
+			}
+			else{
+				return false;
+			}
+		};
+
+		//测试程序
+		var q = new Queue();
+		q.enqueue("Carol");
+		q.enqueue("Daisy");
+		q.enqueue("Jason");
+		alert(q.toString());
+		q.dequeue();
+		alert(q.toString());
+		alert("Front of queue:"+ q.front());
+		alert("Back of queue:"+ q.back());
+	</script>
+</head>
+<body>
+
+</body>
+</html>
