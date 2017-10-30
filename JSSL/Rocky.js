@@ -26,23 +26,54 @@ function push(stackMember){
     this.element.push(element);
 };
 
+function pop(stackMember){
+    this.element.pop();
+};
+
+function peek(){
+    return element[element.length-1];
+};
+
+function isEmpty(){
+    return this.size === 0;
+};
+
+function clear(stackMember){
+    this.element.clear();
+};
+
+function size(){
+    return element.length
+};
+
+function print(){
+    console.log("Print Stack: " + this.toString());
+};
+
+function toString(stackMember){
+    return this.element.toString();
+};
 
 
-this.push = function(element){
-    items.push(element);
+
+
+function empty() {
+    if (this.dataStore.length == 0) {
+        return true;
+    }
+    else{
+        return false;
+    }
 };
-this.pop = function(){
-    return items.pop();
-};
+
+
+
+
 this.peek = function(){
     return items[items.length-1];
 };
-this.isEmpty = function(){
-    return items.length == 0;
-};
-this.size = function(){
-    return items.length;
-};
+
+
 this.clear = function(){
     items = [];
 };
