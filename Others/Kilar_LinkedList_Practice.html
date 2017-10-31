@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Linked List</title>
+	<script type="text/javascript">
+		function Node(){
+  			this.data=null;
+  			this.next=null;
+		};
+		function LinkedList(){
+		  this.head=null;
+		  this.__current=null; 
+		  this.tail=null;
+		  this.length=0;
+		};
+		LinkedList.prototype.print=function(){
+		  var values=new Array();
+		  this.__current=this.head;
+		  for(i=0;i<this.length;i++){
+		  	values.push(this.__current.data);
+		  	this.__current=this.__current.next;
+		  };
+		  alert(values.join());
+		}
+
+		LinkedList.prototype.addHead=function(element){
+		   var node=new Node();
+		    node.data=element;
+		    node.next=this.head;
+		    this.head=node;
+		    this.tail=node;
+		    this.length=this.length+1
+		};
+
+		LinkedList.prototype.append=function(element){
+			var node= new Node();
+			node.data=element;
+			if(this.length==0){
+				node.next=this.head;
+			    this.head=node;
+			    this.tail=node;
+			    this.length=this.length+1
+			}
+			else{
+				this.tail.next=node;
+				this.tail=node;
+				this.length=this.length+1;
+			}
+
+
+		};
+		LinkedList.prototype.insert=function(position,element){
+			var node= new Node();
+			node.data=element;
+			if (position>this.length) {
+				alert("the position is out of the current linked list");
+			}else{
+				if(position==0){
+					var tempnode=new Node();
+					tempnode=this.head;
+					this.head=node;
+					node.next=tempnode;
+					delete tempnode;
+
+				}else if(position==this.length){
+					this.tail.next=node;
+					this.tail=node;					
+
+				}else{
+					this.__current=this.head;
+					for(i=0;i<position-1;i++){
+						this.__current=this.__current.next;
+
+					}
+					var tempnode=new Node();
+					tempnode=this.__current.next;
+					this.__current.next=node;
+					node.next=tempnode;
+					delete tempnode;
+				}
+				this.length=this.length+1;
+			}
+
+		};
+		LinkedList.prototype.indexOf = function(element) {
+			this.__current=this.head;
+			var i;
+			for (i=0;i<this.length;i++){
+				if(this.__current.data==element){
+					return i;
+				}else{
+					this.__current=this.__current.next;				
+			}
+
+		   }
+		   if(i==this.length){
+				return -1;
+			}
+	   };
+	   LinkedList.prototype.removeByIndex=function(index){
+	   		if(index>this.length-1){
+	   			alert("the index "+index+" is out of the scope");
+	   		}else{
+	  			if(index==0){
+	  				this.head=this.head.next;
+	  				this.length=this.length-1;
+	  			}
+	  			else if (index==this.length-1) {
+	  				this.__current=this.head;
+	  				for(i=0;i<index-1;i++){
+	  					this.__current=this.__current.next;
+	  				
+	  				};
+	  				this.tail=this.__current;
+	  				this.tail.next=null;
+	  				this.length=this.length-1;
+
+	  			} 			
+	  			else{
+	  			   this.__current=this.head;
+		   		   for(i=0;i<=index-2;i++){
+		   		   		this.__current=this.__current.next;
+		   		   };
+		   		   var tempnode=new Node();
+		   		   tempnode=this.__current.next;
+		   		   this.__current.next=tempnode.next;
+		   		   delete tempnode;
+		   		   this.length=this.length-1;
+
+	  			}
+
+	   		}
+
+	   };
+	   LinkedList.prototype.removeByElement=function(element){
+	   		this.__current=this.head;
+	   		if(this.head.data==element){
+	   			this.head=this.head.next;
+	   			this.length=this.length-1;
+	   		}
+	   		else{
+	   			var i;
+		   		for(i=0;i<this.length-1;i++){ 			
+		   			if(this.__current.next.data==element){
+		   				break;
+		   			}
+		   			this.__current=this.__current.next;
+		   		}
+		   		if(i==this.length-1){
+					alert("the element is not found");
+				}
+				else if(i==this.length-2){
+					this.tail=this.__current;
+	  				this.tail.next=null;
+	  				this.length=this.length-1;
+
+				}
+				else{
+					var tempnode=new Node();
+		   			tempnode=this.__current.next;
+		   			this.__current.next=tempnode.next;
+		   			delete tempnode;
+		   			this.length=this.length-1;
+
+				}
+
+	   		}
+
+
+	   };
+
+	   function Stack(){
+	   		this.item=new LinkedList();
+
+	   };	   
+	   Stack.prototype.push=function(element){
+	   		this.item.append(element);
+
+	   };
+	   Stack.prototype.pop=function(){
+	   		var lastValue=this.item.tail.data;
+	   		this.item.removeByIndex(this.item.length-1);
+	   		return lastValue;
+	   };
+	   Stack.prototype.peek=function(){
+	   		return this.item.tail.data;
+
+	   };
+	   Stack.prototype.isEmpty=function(){
+	   		if(this.item.length==0){
+	   			return true;
+	   		}else{
+	   			return false;
+	   		}
+	   };
+	   Stack.prototype.clear=function(){
+	   	   this.item=new LinkedList();
+	   };
+	   Stack.prototype.size=function(){
+	   		return this.item.length;
+	   };
+	   Stack.prototype.print=function(){
+	   		this.item.print();
+	   };
+	   Stack.prototype.toString=function(){
+	   		var result=new Array();
+	   		var currentItem=this.item.head;
+	   		for(i=0;i<this.item.length;i++){
+	   			result.push(currentItem.data);
+	   			currentItem=currentItem.next;
+	   		}
+
+	   		return result.join();
+	   }
+
+
+		var teststack=new Stack();
+		teststack.push("dad");
+		teststack.push("2nd node");
+		teststack.push("3 node");
+		teststack.push("4 node");
+		teststack.push("5 node");
+		teststack.push("6 node");
+		teststack.push("7 node");
+		teststack.pop();
+		alert(teststack.isEmpty());
+		alert(teststack.toString());
+		teststack.clear()
+		alert(teststack.isEmpty());
+
+	</script>
+</head>
+<body>
+
+</body>
+</html>

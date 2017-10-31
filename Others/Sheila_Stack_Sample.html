@@ -1,3 +1,9 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Linked List</title>
+	<script type="text/javascript">
+
 function LinkedList() {
     //Node类声明
     var Node = function(element){
@@ -121,50 +127,56 @@ function LinkedList() {
 }
 //Stack
 function Stack(){
-    var item = new LinkedList();
-
-    this.push = function(element){
-        item.insert(0,element);
-    };
-
-    this.pop = function(){
-        return item.removeAt(0);
-    };
-
-    this.peek = function(){
-        var head = item.getHead();
-        return head.element;
-    };
-
-    this.isEmpty = function(){
-        return item.isEmpty();
-    };
-
-    this.size = function(){
-        return item.size();
-    };
-
-    this.clear = function(){
-        item = new LinkedList();
-    };
-
-    this.print = function(){
-        item.toString()
-    };
-
-    this.print = function(){
-        item.print();
-    };
+	var item = new LinkedList();
+ 	
+	this.push = function(element){
+		item.insert(0,element);
+	};
+	
+	this.pop = function(){
+		return item.removeAt(0);
+	};
+	
+	this.peek = function(){
+		var head = item.getHead();
+		return head.element;
+	};
+	
+	this.isEmpty = function(){
+		return item.isEmpty(); 		
+	};
+	
+	this.size = function(){
+		return item.size();
+	};
+	
+	this.clear = function(){
+		item = new LinkedList();
+	};
+	
+	this.print = function(){
+		item.toString()
+	};
+	
+	this.print = function(){
+		item.print();
+	};	
 }
 
 //Sample
-var sampleStack = new Stack();
-sampleStack.push("Node 1");
-sampleStack.push("Node 2");
-sampleStack.push("Node 3");
-sampleStack.push("Node 4");
-sampleStack.print();
-console.log("Top node is: " + sampleStack.peek());
-console.log("Pop node: " + sampleStack.pop());
-console.log("Top node is: " + sampleStack.peek());
-sampleStack.print();
+	var sampleStack = new Stack();
+	sampleStack.push("Node 1");
+	sampleStack.push("Node 2");
+	sampleStack.push("Node 3");
+	sampleStack.push("Node 4");
+	sampleStack.print();
+	console.log("Top node is: " + sampleStack.peek());
+	console.log("Pop node: " + sampleStack.pop());
+	console.log("Top node is: " + sampleStack.peek());
+	sampleStack.print();
+	</script>
+</head>
+<body>
+
+</body>
+</html>
