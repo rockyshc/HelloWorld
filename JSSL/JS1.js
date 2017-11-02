@@ -1,12 +1,11 @@
 /**
  *  Hello World
  */
-var a1, a2, a3; //declaring a and b
+var a1, a2 ; //declaring a and b
     a1 = "Hello World!";  //assignment
     a2 = "你好世界!";  //assignment
 console.log(a1); //Hello World!
 console.log(a2); //你好世界!
-console.log(a3); //null
 console.log('Hello World!!');
 
 /**
@@ -119,8 +118,3 @@ for (var i = array.length-1; i >= 0; i--){
     console.log('Array No.' + i + ' = ' + array[i]);
 }
 
-var array = [1,2,3];
-for (var i = array.length-1; i >= 0; i--){
-    array[i]++;
-    console.log('Array No.' + i + ' = ' + array[i]);
-}

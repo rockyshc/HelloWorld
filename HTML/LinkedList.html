@@ -44,20 +44,6 @@
             this.length ++;
         };
 
-        this.insertTail = function (item) {
-            //If it is the first node
-            if (this.tail === null) {
-                this.tail = new Node(item);
-                this.head = this.tail;
-            } else {
-                var temp = new Node(item);
-                temp.previous = this.tail;
-                this.tail.next = temp;
-                this.tail = temp;
-            }
-            this.length ++;
-        };
-
         this.removeHead = function () {
             var returnValue = null;
             if (this.head !== null) {
@@ -69,22 +55,6 @@
                 } else {
                     this.head = this.head.next;
                     this.head.previous = null;
-                }
-            }
-            return returnValue;
-        };
-
-        this.removeTail = function () {
-            var returnValue = null;
-            if (this.tail !== null) {
-                returnValue = this.tail.data;
-                this.length --;
-                if (this.tail === this.head) {
-                    this.head = null;
-                    this.tail = null;
-                } else {
-                    this.tail = this.tail.previous;
-                    this.tail.next = null;
                 }
             }
             return returnValue;
