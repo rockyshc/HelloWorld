@@ -1,3 +1,38 @@
+    //http://www.cnblogs.com/eniac12/p/5329396.html
+    //http://www.cnblogs.com/eniac12/p/5332117.html
+    //http://www.cnblogs.com/JChen666/p/3360853.html
+    //https://github.com/damonare/Sorts
+
+    /**
+     *
+     * 生成从 1 到 length 之间的随机数组
+     *
+     * @length 随机数组的长度，如果未传递该参数，那么 length 为默认值 9
+     *
+     */
+    function randomArray(length) {
+        var i,
+            index,
+            temp,
+            items = [length];
+        length = typeof(length) === 'undefined' ? 9 : length;
+        for (i = 1; i <= length; i++) {
+            items[i - 1] = i;
+        }
+        // 打乱数组
+        for (i = 0; i <= length; i++) {
+            // 产生从 i 到 length 之间的随机数
+            index = parseInt(Math.random() * (length - i)) + i;
+            if (index != i) {
+                temp = items[i];
+                items[i] = items[index];
+                items[index] = temp;
+            }
+        }
+        return items;
+    }
+
+
 
 function sort(){
 
@@ -39,7 +74,7 @@ function sort(){
             account ++;
         }
         return items;
-    }
+    };
 
     this.bubbleSortA = function(items){
         for (var i = 0 ; i < items.length ; i++) {
@@ -97,6 +132,14 @@ function sort(){
         return items;
     }
 
+    // 分类 -------------- 内部比较排序
+    // 数据结构 ---------- 数组
+    // 最差时间复杂度 ---- O(n^2)
+    // 最优时间复杂度 ---- O(nlogn)
+    // 平均时间复杂度 ---- O(n^2)
+    // 所需辅助空间 ------ O(1)
+    // 稳定性 ------------ 稳定
+
     this.binaryInsertSort = function(items){
         for(var i = 1; i < items.length; i++){
             temp = items[i];
@@ -121,10 +164,11 @@ function sort(){
     }
 }
 
-var demo = new sort();
-var items =[7,5,2,0,8,3,6,9,1,4];
-//console.log("Before bubble sort  [" + items + "].");
-console.log("After bubble sort [" + demo.bubbleSort(items) + "].");
+    var demo = new sort();
+//var items =[7,5,2,0,8,3,6,9,1,4];
+    var items = randomArray();
+    console.log("Before bubble sort  [" + items + "].");
+    console.log("After bubble sort [" + demo.bubbleSort(items) + "].");
 //console.log("After bubble A sort [" + demo.bubbleSortA(items) + "].");
 //console.log("After bubble B sort [" + demo.bubbleSortB(items) + "].");
 //console.log("After Insert sort [" + demo.insertSort(items) + "].");
