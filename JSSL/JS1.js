@@ -91,10 +91,10 @@ switch (a10) {
  * (condition) ? expr1 : expr2
  *
  */
-var a11 = 2;
+var a11 = 3;
 var even1 = (a11 % 2 === 0) ? true : false;
 //  can be simplified to this :
-var even2 = (a11 % 2 === 0) ;
+var even2 = a11 % 2 === 0 ;
 console.log('a11 = ' + a11 + '. If a11 is even ? The answer is ' + even1 + '.');
 console.log('a11 = ' + a11 + '. If a11 is even ? The answer is ' + even2 + '.');
 
