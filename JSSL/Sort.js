@@ -162,6 +162,21 @@ function sort(){
         }
         return items;
     }
+
+    //选择排序
+
+
+    //快速排序
+
+
+
+
+
+
+
+
+
+
 }
 
     var demo = new sort();

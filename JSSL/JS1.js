@@ -104,17 +104,38 @@ console.log('a11 = ' + a11 + '. If a11 is even ? The answer is ' + even2 + '.');
  *
  */
 
+//-->1<--
 //positive sequence traverse
 var array = [1,2,3];
 for (var i = 0; i < array.length; i++){
     array[i]++;
-    console.log('Array No.' + i + ' = ' + array[i]);
+    console.log('-->1<-- Array No.' + i + ' = ' + array[i]);
 }
 
+//-->2<--
 //Reverse traversal
 var array = [1,2,3];
 for (var i = array.length-1; i >= 0; i--){
     array[i]++;
-    console.log('Array No.' + i + ' = ' + array[i]);
+    console.log('-->2<-- Array No.' + i + ' = ' + array[i]);
 }
 
+//-->3<--
+//
+var array = [1,2,3];
+for (var i in array){
+    array[i]++;
+    console.log('-->3<-- Array No.' + i + ' = ' + array[i]);
+}
+
+//-->4<--
+//TODO for each
+
+//-->5<--
+var array = [1,2,3];
+var i = 0 ;
+while(i < array.length ){
+    array[i]++;
+    console.log('-->5<-- Array No.' + i + ' = ' + array[i]);
+    i ++; //At the end will out of the loop
+}
